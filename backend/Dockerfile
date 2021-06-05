@@ -1,7 +1,21 @@
-FROM node:alpine
+# FROM node:alpine
+# WORKDIR /app
+# COPY package.json .
+# RUN npm install
+# COPY . .
+# CMD node app.js
+# EXPOSE 500
+
+
+FROM node:13-slim AS base
+
 WORKDIR /app
-COPY package.json .
+
+ADD package.json .
 RUN npm install
-COPY . .
-CMD node app.js
-EXPOSE 500
+
+COPY index.js .
+
+EXPOSE 3000
+
+CMD npm start
