@@ -13,7 +13,7 @@ spec:
         app: backend-service
     spec:
       containers:
-      - image: okteto.dev/backend-service
+      - image: chihab2012/test
         name: backend
 
 ---
