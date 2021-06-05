@@ -1,15 +1,7 @@
-FROM node:14-slim
-
-# setup okteto message
-COPY bashrc /root/.bashrc
-
-WORKDIR /usr/src/app
-
-ADD package.json .
+FROM node:alpine
+WORKDIR /app
+COPY package.json .
 RUN npm install
-
-COPY index.js .
-
-EXPOSE 3000
-
-CMD npm start
+COPY . .
+CMD node app.js
+EXPOSE 500
