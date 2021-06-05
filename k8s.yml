@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend
+  name: backend-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: backend
+      app: backend-service 
   template:
     metadata:
       labels:
-        app: backend
+        app: backend-service
     spec:
       containers:
-      - image: chihab2012/test
+      - image: okteto.dev/backend-service
         name: backend
 
 ---
@@ -23,11 +23,11 @@ kind: Service
 metadata:
   name: backend
   annotations:
-    dev.okteto.com/auto-ingress: "true"
+    dev.okteto.com/auto-ingress: "domain"
 spec:
   type: ClusterIP  
   ports:
-  - name: "backend"
+  - name: "backend-service"
     port: 3000
   selector:
-    app: backend
+    app: backend-service 
