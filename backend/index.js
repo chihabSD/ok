@@ -35,7 +35,7 @@ app.post("/login", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server at ${PORT}`);
+  console.log(`Server at port ${PORT}`);
 });
 // const express = require("express");
 // const app = express();
