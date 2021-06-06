@@ -15,7 +15,9 @@ spec:
       containers:
       - image: okteto.dev/backend
         name: backend
-
+        env:
+            - name : RABBITMQ_URL 
+              value : amqp://rabbitmq
 ---
 
 apiVersion: v1
