@@ -1,4 +1,9 @@
+const express = require("express");
+const app = express();
 const amqp = require("amqplib/callback_api");
+app.get("/", function (req, res) {
+  res.send({ test: process.env.RABBITMQ_URL });
+});
 
 // Step 1: Create Connection
 amqp.connect(process.env.RABBITMQ_URL, (connError, connection) => {
@@ -24,4 +29,8 @@ amqp.connect(process.env.RABBITMQ_URL, (connError, connection) => {
       }
     );
   });
+});
+
+app.listen(5000, function () {
+  console.log("Starting hello-world server...");
 });
