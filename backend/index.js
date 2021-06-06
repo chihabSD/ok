@@ -13,7 +13,7 @@ app.get("/", function (req, res) {
         throw channelError;
       }
       // Step 3: Assert Queue
-      const QUEUE = "codingtest";
+      const QUEUE = "tsssssssssssssssssss";
       channel.assertQueue(QUEUE);
       // Step 4: Receive Messages
       channel.consume(
@@ -26,11 +26,11 @@ app.get("/", function (req, res) {
         }
       );
 
-      const QUEUE = "codingtest";
-      channel.assertQueue(QUEUE);
-      // Step 4: Send message to queue
-      channel.sendToQueue(QUEUE, Buffer.from("hello from its coding time"));
-      console.log(`Message send ${QUEUE}`);
+      // const QUEUE = "codingtest";
+      // channel.assertQueue(QUEUE);
+      // // Step 4: Send message to queue
+      // channel.sendToQueue(QUEUE, Buffer.from("hello from its coding time"));
+      // console.log(`Message send ${QUEUE}`);
     });
   });
   res.send({ test: process.env.RABBITMQ_URL });
