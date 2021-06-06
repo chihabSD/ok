@@ -18,7 +18,7 @@ spec:
         env:
             - name : RABBITMQ_URL 
               # value : amqp://rabbitmq-srv:
-              value: 'http://rabbitmq-srv:15672'
+              value: 'amqp://rabbitmq-srv:15672'
 ---
 
 apiVersion: v1
