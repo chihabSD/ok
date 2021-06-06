@@ -21,15 +21,6 @@ amqp.connect(process.env.RABBITMQ_URL, (connError, connection) => {
     const QUEUE = "Justtest";
     channel.assertQueue(QUEUE);
     // Step 4: Receive Messages
-    // channel.consume(
-    //   QUEUE,
-    //   (msg) => {
-    //     console.log(`Message received: ${msg.content.toString()}`);
-    //   },
-    //   {
-    //     noAck: true,
-    //   }
-    // );
 
     // const QUEUE = "codingtest";
     channel.assertQueue(QUEUE);
@@ -40,6 +31,16 @@ amqp.connect(process.env.RABBITMQ_URL, (connError, connection) => {
     );
     // channel.sendToQueue(QUEUE, Buffer.from("hello from its coding time"));
     console.log(`Message send ${QUEUE}`);
+
+    channel.consume(
+      QUEUE,
+      (msg) => {
+        console.log(`Message received: ${msg.content.toString()}`);
+      },
+      {
+        noAck: true,
+      }
+    );
   });
 });
 
