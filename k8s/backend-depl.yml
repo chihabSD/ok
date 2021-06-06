@@ -28,6 +28,6 @@ spec:
   type: ClusterIP  
   ports:
   - name: "backend-service"
-    port: 3000
+    port: 5000
   selector:
     app: backend-service 
