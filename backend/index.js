@@ -3,8 +3,7 @@ const app = express();
 const amqp = require("amqplib/callback_api");
 
 app.post("/login", (req, res) => {
-  const { user } = req.body;
-  res.json({ user });
+  res.json({ user: "Chihabeddine ahmed" });
 });
 
 // amqp.connect(process.env.RABBITMQ_URL, (connError, connection) => {
