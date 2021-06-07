@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const amqp = require("amqplib/callback_api");
 
-app.post("/login", (req, res) => {
+app.get("/login", (req, res) => {
   res.json({ user: "Chihabeddine ahmed" });
 });
 
